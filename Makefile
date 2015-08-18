@@ -14,7 +14,7 @@ OUTFILES_H=$(PROTOFILES:.proto=.pb.h)
 all: $(OUTFILES_CC)
 
 %.pb.cc: %.proto
-	$(PROTOC) -I$(PROTOFILES_BASE_DIR) --cpp_out=$(dir $<) $<
+	$(PROTOC) -I=$(PROTOFILES_BASE_DIR) --cpp_out=$(dir $<) $<
 
 clean:
 	# clean doesn't work, files end up in unexpected directory
