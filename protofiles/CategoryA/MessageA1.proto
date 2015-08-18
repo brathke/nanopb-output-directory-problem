@@ -1,0 +1,5 @@
+message MessageA1 {
+    required string id = 1;
+    required int32 value = 2;
+}
+

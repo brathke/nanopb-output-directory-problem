@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+import "CategoryA/MessageA1.proto";
+import "CategoryB/MessageB1.proto";
+import "CategoryC/MessageC1.proto";
+
+message Base {
+    oneof type {
+        MessageA1 messageA1 = 1;
+        MessageB1 messageB1 = 2;
+        MessageC1 messageC1 = 3;
+    }
+}
+
