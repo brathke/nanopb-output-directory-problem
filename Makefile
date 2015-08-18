@@ -1,4 +1,4 @@
-PROTOC=../nanopb/generator-bin/protoc
+PROTOC = /usr/local/bin/protoc
 
 PROTOFILES_BASE_DIR=protofiles
 
@@ -8,16 +8,16 @@ $(PROTOFILES_BASE_DIR)/CategoryA/MessageA1.proto \
 $(PROTOFILES_BASE_DIR)/CategoryB/MessageB1.proto \
 $(PROTOFILES_BASE_DIR)/CategoryC/MessageC1.proto
 
-OUTFILES_C=$(PROTOFILES:.proto=.pb.c)
-OUTFILES_CPP=$(PROTOFILES:.proto=.cpp)
+OUTFILES_CC=$(PROTOFILES:.proto=.pb.cc)
+OUTFILES_H=$(PROTOFILES:.proto=.pb.h)
 
-all: all_c all_cpp
-all_c: $(OUTFILES_C)
-all_cpp: $(OUTFILES_CPP)
+all: $(OUTFILES_CC)
 
-%.pb.c: %.proto
-	$(PROTOC) -I$(PROTOFILES_BASE_DIR) --nanopb_out=$(dir $<) $<
-
-%.cpp: %.proto
+%.pb.cc: %.proto
 	$(PROTOC) -I$(PROTOFILES_BASE_DIR) --cpp_out=$(dir $<) $<
+
+clean:
+	# clean doesn't work, files end up in unexpected directory
+	rm -f $(OUTFILES_CC)
+	rm -f $(OUTFILES_H)
 
