@@ -1,5 +1,5 @@
 # protoc-output-dir-problem
-Demonstrates a problem I'm experiencing with the Google protocol buffers compiler, protoc.
+This project demonstrates a problem I'm experiencing with the Google protocol buffers compiler.
 
 I have a number of .proto files organized in a number of directories which are expected to be loaded into a root directory 'protofiles'. 
 
@@ -78,22 +78,22 @@ When I 'make all' I do not get the expected results: the output files in the sam
 ├── Makefile
 ├── protofiles
 │   ├── Base
-│   │   ├── Base
+│   │   ├── Base  <-------------------------- ? 
 │   │   │   ├── Base.pb.cc
 │   │   │   └── Base.pb.h
 │   │   └── Base.proto
 │   ├── CategoryA
-│   │   ├── CategoryA
+│   │   ├── CategoryA  <-------------------------- ? 
 │   │   │   ├── MessageA1.pb.cc
 │   │   │   └── MessageA1.pb.h
 │   │   └── MessageA1.proto
 │   ├── CategoryB
-│   │   ├── CategoryB
+│   │   ├── CategoryB  <-------------------------- ? 
 │   │   │   ├── MessageB1.pb.cc
 │   │   │   └── MessageB1.pb.h
 │   │   └── MessageB1.proto
 │   └── CategoryC
-│       ├── CategoryC
+│       ├── CategoryC  <-------------------------- ? 
 │       │   ├── MessageC1.pb.cc
 │       │   └── MessageC1.pb.h
 │       └── MessageC1.proto
